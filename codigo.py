@@ -19,7 +19,7 @@ def main(pagina): # 2
 
   def enviar_mensagem_tunel(mensagem):
     texto_mensagem = mensagem['texto']
-    usuario_mensagem - mensagem['usuario']
+    usuario_mensagem = mensagem['usuario']
     # Adicionar a mensagem no chat
     chat.controls.append(ft.Text(f'{usuario_mensagem}: {texto_mensagem}'))
     pagina.update()
