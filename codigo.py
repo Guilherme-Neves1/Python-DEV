@@ -18,8 +18,10 @@ def main(pagina): # 2
   nome_usuario = ft.TextField(label='Escreva seu nome')
 
   def enviar_mensagem_tunel(mensagem):
+    texto_mensagem = mensagem['texto']
+    usuario_mensagem - mensagem['usuario']
     # Adicionar a mensagem no chat
-    chat.controls.append(ft.Text(mensagem))
+    chat.controls.append(ft.Text(f'{usuario_mensagem}: {texto_mensagem}'))
     pagina.update()
 
   # PUBSUB -> PUBLISH SUBSCRIBE
@@ -28,7 +30,7 @@ def main(pagina): # 2
   pagina.pubsub.subscribe(enviar_mensagem_tunel)
   
   def enviar_mensagem(evento):
-    pagina.punsub.send_all(campo_mensagem.value)
+    pagina.pubsub.send_all({'texto': campo_mensagem.value, 'usuario': nome_usuario.value})
     # Limpar o campo de mensagem
     campo_mensagem.value = ""
     pagina.update()
